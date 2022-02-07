@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import PostList, PostDetailView, PostAddView, PostListFilter, PostUpdateView, PostDeleteView, \
-    BaseRegisterView, upgrade_me, CategoryView, add_subscribe
+    BaseRegisterView, upgrade_me, CategoryView #, add_subscribe
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
