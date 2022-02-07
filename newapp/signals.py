@@ -34,5 +34,5 @@ def notify_managers_post(sender, instance, created, **kwargs):
               message=instance.text[:40],
               from_email='anrodion81222@yandex.ru',
               recipient_list=all_email_to)
-    )
+    
     print('Разослано!')
