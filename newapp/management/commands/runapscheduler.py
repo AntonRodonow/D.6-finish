@@ -41,8 +41,8 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             my_job,
-            # trigger=CronTrigger(day_of_week='sat', hour=10),  # Еженедльная отправка по субботам в 10:00
-            trigger=CronTrigger(second="*/50"), # отправка раз в 50 сек
+            trigger=CronTrigger(day_of_week='sat', hour=10),  # Еженедльная отправка по субботам в 10:00
+#             trigger=CronTrigger(second="*/50"), # отправка раз в 50 сек
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="my_job",  # уникальный айди
             max_instances=1,
