@@ -12,15 +12,14 @@ from .models import Post, Category, User
 # created - булевая, есть или нет объект в БД
 @receiver(post_save, sender=Post)
 def notify_managers_post(sender, instance, created, **kwargs):
-    count = 0
     user_aut = instance.author
     print(f"{user_aut}")
     print('Test 2')
 
     if created:
-        subject = f'Подоспела новая публикация {instance.title} от {instance.author} : {instance.d_time.strftime("%d %m %Y")}'
+        subject = f'Подоспела новая публикация {instance.title} от {instance.author} : {instance.dateCreation.strftime("%d %m %Y")}'
     else:
-        subject = f'Была актуализирована публикация {instance.title} от {instance.author} : {instance.d_time.strftime("%d %m %Y")}'
+        subject = f'Была актуализирована публикация {instance.title} от {instance.author} : {instance.dateCreation.strftime("%d %m %Y")}'
     all_email_to = ['anrodion81222@yandex.ru',] # добавлен адрес админа, но можно и пустой список
     for category in instance.postCategory.all():
         print(f'{category}')
