@@ -17,13 +17,6 @@ logger = logging.getLogger(__name__)
 # наша задача по выводу текста на экран
 def my_job():
     weekly_digest()
-    # send_mail(
-    #     'Job mail',
-    #     'hello from job!',
-    #     from_email='anrodion81222@yandex.ru',
-    #     recipient_list=['anrodion812@gmail.com'],
-    # )
-
 
 # функция, которая будет удалять неактуальные задачи
 def delete_old_job_executions(max_age=604_800):
@@ -41,7 +34,7 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(day_of_week='sat', hour=10),  # Еженедльная отправка по субботам в 10:00
+            trigger=CronTrigger(day_of_week='sat', hour='10'),  # Еженедльная отправка по субботам в 10:00
 #             trigger=CronTrigger(second="*/50"), # отправка раз в 50 сек
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="my_job",  # уникальный айди
