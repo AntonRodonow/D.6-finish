@@ -43,7 +43,7 @@ def weekly_digest():
             
             if time_delta < week:
                 weekly_posts_in_category.append(post)
-                print(f'Дата публикации: {post.d_time}')
+                print(f'Дата публикации: {post.dateCreation}')
                 print(f'Дельта: {time_delta}')
                 print('----------------   ---------------')
 
